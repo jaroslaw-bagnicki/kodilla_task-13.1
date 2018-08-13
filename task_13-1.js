@@ -1,4 +1,4 @@
-const data = [
+var data = [
 	{
 		id: 'box1',
 		title: 'First box',
@@ -31,11 +31,7 @@ const data = [
 	},
 ];
 
-data.forEach(boxData => {
-  document.querySelector('body').insertAdjacentHTML('beforeend', `
-    <div class="box ${boxData.categories.join(' ')}" id="${boxData.id}">
-      <header>${boxData.title}</header>
-      ${boxData.content}
-    </div>
-  `)
-});
+for (var i = 0; i < data.length; i++) {
+	var newBox = ' <div class="box ' + data[i].categories.join(' ') + '" id="' + data[i].id + '"><header>'+ data[i].title + '</header>' + data[i].content + '</div>';
+	document.querySelector('body').insertAdjacentHTML('beforeend', newBox);
+}
